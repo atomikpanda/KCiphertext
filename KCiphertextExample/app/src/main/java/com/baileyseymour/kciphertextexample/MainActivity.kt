@@ -13,34 +13,37 @@ import kotlin.reflect.KProperty
 
 open class MainActivity : AppCompatActivity() {
 
-    @Ciphertext("test")
-    lateinit var someHiddenSecret: String
+//    @Ciphertext("test")
+//    lateinit var someHiddenSecret: String
 
-    @Ciphertext("API_KEY_EXPOSED")
-    lateinit var myAPIKey: String
+//    @Ciphertext("API_KEY_HERE_123456789_acbdefghijklmnop")
+//    lateinit var myAPIKeyUsingCiphertext: String
 
-    private var someNormalSecret: String = "normal_secret"
+    val myAPIKeyNotUsingCiphertext: String = "this_API_KEY_is_not_encrypted_1234asdf"
 
-    @CiphertextProperty([68, 68, 69])
-    val runtimeTest: String by ShiftCiphertextDelegate(0)
+//    private var someNormalSecret: String = "normal_secret"
+//
+//    @CiphertextProperty([68, 68, 69])
+//    val runtimeTest: String by ShiftCiphertextDelegate(0)
 
-    companion object {
-        @CiphertextProperty([74, 74, 75])
-        val STATIC_SECRET: String by ShiftCiphertextDelegate(1)
-
-        @Ciphertext("API_KEY_EXPOSED_STATIC")
-        lateinit var myStaticAPIKey: String
-    }
+//    companion object {
+//        @CiphertextProperty([74, 74, 75])
+//        val STATIC_SECRET: String by ShiftCiphertextDelegate(1)
+//
+//        @Ciphertext("API_KEY_EXPOSED_STATIC")
+//        lateinit var myStaticAPIKey: String
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ciphertext()
 
-        textView.text = someNormalSecret
-        textView.text = someHiddenSecret
-        textView.text = STATIC_SECRET
-        textView.text = runtimeTest
+        textView.text = myAPIKeyNotUsingCiphertext
+        //textView.text = myAPIKeyNotUsingCiphertext
+//        textView.text = someNormalSecret
+//        textView.text = someHiddenSecret
+//        textView.text = STATIC_SECRET
+//        textView.text = runtimeTest
     }
 }
 
