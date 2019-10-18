@@ -1,0 +1,2 @@
+include ':app', ':annotation', ':aprocessor'
+rootProject.name='KCiphertextExample'
